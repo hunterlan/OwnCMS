@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using OwnCMS.Application.Models;
+using OwnCMS.Entities;
 
 namespace OwnCMS.Application.Contexts;
 
@@ -26,20 +26,18 @@ public partial class OwnCmsContext : DbContext
 
             entity.ToTable("categories");
 
-            entity.HasIndex(e => e.Slug, "categories_index_2").IsUnique();
-
             entity.HasIndex(e => e.Slug, "categories_slug_key").IsUnique();
 
             entity.Property(e => e.Id)
                 .ValueGeneratedNever()
                 .HasColumnName("id");
             entity.Property(e => e.CreatedAt)
-                .HasColumnType("timestamp without time zone")
+                .HasColumnType("timestamp with time zone")
                 .HasColumnName("created_at");
             entity.Property(e => e.Name).HasColumnName("name");
             entity.Property(e => e.Slug).HasColumnName("slug");
             entity.Property(e => e.UpdatedAt)
-                .HasColumnType("timestamp without time zone")
+                .HasColumnType("timestamp with time zone")
                 .HasColumnName("updated_at");
         });
 
@@ -52,18 +50,17 @@ public partial class OwnCmsContext : DbContext
             entity.HasIndex(e => e.Slug, "contents_index_2").IsUnique();
 
             entity.Property(e => e.Id)
-                .ValueGeneratedNever()
                 .HasColumnName("id");
             entity.Property(e => e.CategoryId).HasColumnName("category_id");
             entity.Property(e => e.CreatedAt)
-                .HasColumnType("timestamp without time zone")
+                .HasColumnType("timestamp with time zone")
                 .HasColumnName("created_at");
             entity.Property(e => e.Css).HasColumnName("css");
             entity.Property(e => e.HtmlBody).HasColumnName("html_body");
             entity.Property(e => e.Slug).HasColumnName("slug");
             entity.Property(e => e.Title).HasColumnName("title");
             entity.Property(e => e.UpdatedAt)
-                .HasColumnType("timestamp without time zone")
+                .HasColumnType("timestamp with time zone")
                 .HasColumnName("updated_at");
 
             entity.HasOne(d => d.Category).WithMany(p => p.Contents)
