@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace OwnCMS.Application.Models;
+﻿namespace OwnCMS.Entities;
 
 public partial class Content
 {

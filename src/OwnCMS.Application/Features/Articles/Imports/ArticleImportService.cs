@@ -1,18 +1,12 @@
 using OwnCMS.Application.Contexts;
-using OwnCMS.Application.Interfaces;
-using OwnCMS.Application.Models;
+using OwnCMS.Entities;
 
-namespace OwnCMS.Application.Services;
+namespace OwnCMS.Application.Features.Articles.Imports;
 
 internal class ArticleImportService(OwnCmsContext cmsContext) : IArticleImportService
 {
-    public Guid Import(Stream htmlStreamContent, Stream cssStreamContent, string articleName, 
-        CancellationToken cancellationToken, string? articleSlug, string? category)
+    public async Task<Guid> ImportMetadata(string articleName, string? articleSlug, string? category, CancellationToken cancellationToken)
     {
-        //TODO: Add validations
-        var htmlContent = ReadStream(htmlStreamContent);
-        var cssContent = ReadStream(cssStreamContent);
-
         articleSlug ??= articleName.ToLower().Replace(" ", "-");
         
         //TODO: Find category by ID or name or create new if name is provided.
@@ -21,14 +15,25 @@ internal class ArticleImportService(OwnCmsContext cmsContext) : IArticleImportSe
             CreatedAt = DateTime.UtcNow,
             Title = articleName,
             Slug = articleSlug,
-            HtmlBody = htmlContent,
-            Css = cssContent,
+            HtmlBody = [],
+            Css = [],
         };
         
         cmsContext.Contents.Add(content);
-        cmsContext.SaveChangesAsync(cancellationToken);
+        await cmsContext.SaveChangesAsync(cancellationToken);
         
         return content.Id;
+    }
+
+    public Task ImportContent(Guid articleId, Stream htmlStreamContent, Stream cssStreamContent, CancellationToken cancellationToken)
+    {
+        //TODO: Validate articleId exists.
+        var article = cmsContext.Contents.Single(c => c.Id == articleId);
+        
+        article.HtmlBody = ReadStream(htmlStreamContent);
+        article.Css = ReadStream(cssStreamContent);
+        
+        return cmsContext.SaveChangesAsync(cancellationToken);
     }
 
     private byte[] ReadStream(Stream stream)

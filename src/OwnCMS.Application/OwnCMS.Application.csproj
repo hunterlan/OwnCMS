@@ -8,8 +8,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <PackageReference Include="Markdig" Version="0.44.0" />
-      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.2">
+      <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.1">
         <PrivateAssets>all</PrivateAssets>
         <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       </PackageReference>
@@ -17,7 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\OwnCMS.Entites\OwnCMS.Entites.csproj" />
+      <ProjectReference Include="..\OwnCMS.Entities\OwnCMS.Entities.csproj" />
     </ItemGroup>
 
 </Project>
