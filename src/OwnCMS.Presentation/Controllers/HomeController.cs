@@ -1,13 +1,15 @@
 using Microsoft.AspNetCore.Mvc;
+using OwnCMS.Application.Features.Articles;
 
 namespace OwnCMS.Presentation.Controllers;
 
-public class HomeController : Controller
+public class HomeController(IArticleService articleService) : Controller
 {
     // GET
     public IActionResult Index()
     {
-        return View();
+        var articles = articleService.GetAll();
+        return View(articles);
     }
 
     public IActionResult About()
