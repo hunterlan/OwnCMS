@@ -20,6 +20,7 @@ public class ArticleService(
             {
                 Id = content.Id,
                 Title = content.Title,
+                Slug = content.Slug,
                 HtmlContent = content.HtmlBody,
                 Published = content.CreatedAt,
                 Category = ""
@@ -29,6 +30,7 @@ public class ArticleService(
         {
             Id = ara.Id,
             Title = ara.Title,
+            Slug = ara.Slug,
             ShortContent = htmlExtractor.ExtractAndTruncate(Encoding.UTF8.GetString(ara.HtmlContent)),
             CreatedAt = ara.Published.ToString("yyyy-MM-dd HH:mm:ss"),
             Category = ara.Category
@@ -72,5 +74,33 @@ public class ArticleService(
             .ToList();
 
         return uncategorizedArticles;
+    }
+
+    public ArticleDto? GetBySlug(string slug)
+    {
+        var content = cmsContext.Contents
+            .Where(c => c.Slug == slug)
+            .Select(c => new
+            {
+                c.Id,
+                c.Title,
+                c.HtmlBody,
+                c.Css,
+                c.CreatedAt,
+                CategoryName = c.Category != null ? c.Category.Name : ""
+            })
+            .FirstOrDefault();
+
+        if (content == null) return null;
+
+        return new ArticleDto
+        {
+            Id = content.Id,
+            Title = content.Title,
+            HtmlContent = Encoding.UTF8.GetString(content.HtmlBody),
+            Css = Encoding.UTF8.GetString(content.Css),
+            CreatedAt = content.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss"),
+            Category = content.CategoryName
+        };
     }
 }

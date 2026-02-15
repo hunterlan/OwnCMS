@@ -20,4 +20,18 @@ public class HomeController(IArticleService articleService) : Controller
         ViewBag.UncategorizedArticles = articleService.GetUncategorizedArticles().ToList();
         return View();
     }
+
+    [Route("article/{slug}")]
+    public IActionResult Article(string slug)
+    {
+        var article = articleService.GetBySlug(slug);
+        if (article == null)
+        {
+            return NotFound();
+        }
+
+        ViewBag.CategorizedArticles = articleService.GetArticlesGroupedByCategory().ToList();
+        ViewBag.UncategorizedArticles = articleService.GetUncategorizedArticles().ToList();
+        return View(article);
+    }
 }
