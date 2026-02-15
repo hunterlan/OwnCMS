@@ -106,3 +106,88 @@ body {
     filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e3e5f3', endColorstr='#c6ccf2', GradientType=0);
     background: linear-gradient(to bottom, #e3e5f3 0%, #c6ccf2 100%);
 }
+
+/* Windows XP Installation Step Style */
+.xp-install-step {
+    margin: 15px 0;
+    zoom: 1;
+}
+
+.xp-step-header {
+    background-color: #e3e5f3; /* Fallback */
+    /* IE8 Gradient */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e3e5f3', GradientType=0);
+    background: linear-gradient(to bottom, #ffffff 0%, #e3e5f3 100%);
+    border: 1px solid #b5c4e7;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-weight: bold;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 13px;
+    color: #003c74;
+    cursor: pointer;
+    margin-bottom: 2px;
+}
+
+.xp-step-header:hover {
+    background-color: #d4dbf7; /* Fallback */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f2ff', endColorstr='#d4dbf7', GradientType=0);
+    background: linear-gradient(to bottom, #f0f2ff 0%, #d4dbf7 100%);
+}
+
+.xp-step-content {
+    background-color: #f1f1f4;
+    border: 1px solid #b5c4e7;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    padding: 10px 12px;
+}
+
+/* Article List Styles */
+.article-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.article-list li {
+    margin: 5px 0;
+    padding-left: 15px;
+    position: relative;
+}
+
+.article-list li:before {
+    content: "\00BB"; /* Right-pointing double angle quotation mark */
+    position: absolute;
+    left: 0;
+    color: #0054e3;
+    font-weight: bold;
+}
+
+.article-list a {
+    color: #003c74;
+    text-decoration: none;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 11px;
+}
+
+.article-list a:hover {
+    text-decoration: underline;
+    color: #0054e3;
+}
+
+.article-list a:visited {
+    color: #5a309b;
+}
+
+/* Sidebar categories container */
+.sidebar-categories {
+    margin-top: 20px;
+}
+
+/* Root level articles (uncategorized) */
+.article-list-root {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #b5c4e7;
+}

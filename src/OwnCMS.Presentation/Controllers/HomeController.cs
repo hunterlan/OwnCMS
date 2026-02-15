@@ -9,11 +9,15 @@ public class HomeController(IArticleService articleService) : Controller
     public IActionResult Index()
     {
         var articles = articleService.GetAll();
+        ViewBag.CategorizedArticles = articleService.GetArticlesGroupedByCategory().ToList();
+        ViewBag.UncategorizedArticles = articleService.GetUncategorizedArticles().ToList();
         return View(articles);
     }
 
     public IActionResult About()
     {
+        ViewBag.CategorizedArticles = articleService.GetArticlesGroupedByCategory().ToList();
+        ViewBag.UncategorizedArticles = articleService.GetUncategorizedArticles().ToList();
         return View();
     }
 }

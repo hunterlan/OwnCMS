@@ -36,4 +36,41 @@ public class ArticleService(
         
         return allArticles;
     }
+
+    public IEnumerable<CategoryArticlesDto> GetArticlesGroupedByCategory()
+    {
+        var categoriesWithArticles = cmsContext.Categories
+            .Select(c => new CategoryArticlesDto
+            {
+                CategoryId = c.Id,
+                CategoryName = c.Name,
+                Articles = c.Contents
+                    .Select(content => new ArticleLinkDto
+                    {
+                        Id = content.Id,
+                        Title = content.Title,
+                        Slug = content.Slug
+                    })
+                    .ToList()
+            })
+            .Where(c => c.Articles.Count > 0)
+            .ToList();
+
+        return categoriesWithArticles;
+    }
+
+    public IEnumerable<ArticleLinkDto> GetUncategorizedArticles()
+    {
+        var uncategorizedArticles = cmsContext.Contents
+            .Where(c => c.CategoryId == null)
+            .Select(content => new ArticleLinkDto
+            {
+                Id = content.Id,
+                Title = content.Title,
+                Slug = content.Slug
+            })
+            .ToList();
+
+        return uncategorizedArticles;
+    }
 }
