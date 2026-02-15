@@ -1,0 +1,27 @@
+@model OwnCMS.Application.Features.Articles.DTOs.ArticleDto
+@{
+    ViewBag.Title = Model.Title;
+    Layout = "_Layout";
+}
+
+@if (!string.IsNullOrEmpty(Model.Css))
+{
+    <style type="text/css">
+        @Html.Raw(Model.Css)
+    </style>
+}
+
+<div class="article-container">
+    <h2>@Model.Title</h2>
+    <p class="article-meta">
+        <span>Published: @Model.CreatedAt</span>
+        @if (!string.IsNullOrEmpty(Model.Category))
+        {
+            <span> | Category: @Model.Category</span>
+        }
+    </p>
+    <hr />
+    <div class="article-content">
+        @Html.Raw(Model.HtmlContent)
+    </div>
+</div>

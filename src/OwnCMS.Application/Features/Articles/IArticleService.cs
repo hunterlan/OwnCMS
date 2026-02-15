@@ -9,4 +9,6 @@ public interface IArticleService
     IEnumerable<CategoryArticlesDto> GetArticlesGroupedByCategory();
     
     IEnumerable<ArticleLinkDto> GetUncategorizedArticles();
+
+    ArticleDto? GetBySlug(string slug);
 }
