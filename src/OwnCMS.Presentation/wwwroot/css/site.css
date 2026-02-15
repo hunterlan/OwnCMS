@@ -15,3 +15,179 @@ html, body {
 body {
     background: #5a6fb8 url(data:image/gif;base64,R0lGODlhAQBkAIAAAFpvuAAAACH5BAAAAAAALAAAAAABAGQAAAICRAEAOw==) repeat-x;
 }
+
+/* Windows XP Window Styles */
+.xp-window {
+    background-color: #ece9d8;
+    border: 3px solid #0054e3;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    width: 400px;
+    margin: 50px auto;
+    box-shadow: 2px 2px 5px #808080; /* IE8 uses hex, ignores rgba */
+    position: relative;
+    zoom: 1; /* For IE7/8 hasLayout */
+}
+
+.xp-title-bar {
+    background-color: #0054e3; /* Fallback */
+    /* IE8 Gradient */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#0058e6', endColorstr='#0054e3', GradientType=0);
+    background: linear-gradient(to bottom, #0058e6 0%, #0869ff 4%, #0054e3 6%, #0054e3 100%);
+    color: white;
+    padding: 3px 5px 3px 10px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    font-weight: bold;
+    text-shadow: 1px 1px #000;
+    zoom: 1;
+    overflow: hidden; /* Clear floats */
+}
+
+.xp-title-text {
+    float: left;
+    line-height: 18px;
+}
+
+.xp-title-controls {
+    float: right;
+}
+
+.xp-close-button {
+    background-color: #d83e20; /* Fallback */
+    /* IE8 Gradient */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e96a4e', endColorstr='#d83e20', GradientType=0);
+    background: linear-gradient(to bottom, #e96a4e 0%, #d83e20 100%);
+    border: 1px solid #7c1a0c;
+    color: white;
+    font-size: 9px;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 3px;
+    cursor: pointer;
+    overflow: visible; /* IE8 button padding fix */
+}
+
+.xp-window-content {
+    padding: 20px;
+    zoom: 1;
+    overflow: hidden; /* Clear floats */
+}
+
+.xp-message {
+    font-family: "MS Sans Serif", Tahoma, Arial, sans-serif;
+    color: black;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.xp-window-buttons {
+    padding: 10px;
+    text-align: center;
+    clear: both;
+}
+
+.xp-button {
+    background-color: #ebebe4; /* Fallback */
+    /* IE8 Gradient */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#ebebe4', GradientType=0);
+    background: linear-gradient(to bottom, #ffffff 0%, #ebebe4 100%);
+    border: 1px solid #003c74;
+    border-radius: 3px;
+    padding: 4px 15px;
+    cursor: pointer;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 11px;
+    overflow: visible;
+}
+
+.xp-button:hover {
+    background-color: #c6ccf2; /* Fallback */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#e3e5f3', endColorstr='#c6ccf2', GradientType=0);
+    background: linear-gradient(to bottom, #e3e5f3 0%, #c6ccf2 100%);
+}
+
+/* Windows XP Installation Step Style */
+.xp-install-step {
+    margin: 15px 0;
+    zoom: 1;
+}
+
+.xp-step-header {
+    background-color: #e3e5f3; /* Fallback */
+    /* IE8 Gradient */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffffff', endColorstr='#e3e5f3', GradientType=0);
+    background: linear-gradient(to bottom, #ffffff 0%, #e3e5f3 100%);
+    border: 1px solid #b5c4e7;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-weight: bold;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 13px;
+    color: #003c74;
+    cursor: pointer;
+    margin-bottom: 2px;
+}
+
+.xp-step-header:hover {
+    background-color: #d4dbf7; /* Fallback */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f0f2ff', endColorstr='#d4dbf7', GradientType=0);
+    background: linear-gradient(to bottom, #f0f2ff 0%, #d4dbf7 100%);
+}
+
+.xp-step-content {
+    background-color: #f1f1f4;
+    border: 1px solid #b5c4e7;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    padding: 10px 12px;
+}
+
+/* Article List Styles */
+.article-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.article-list li {
+    margin: 5px 0;
+    padding-left: 15px;
+    position: relative;
+}
+
+.article-list li:before {
+    content: "\00BB"; /* Right-pointing double angle quotation mark */
+    position: absolute;
+    left: 0;
+    color: #0054e3;
+    font-weight: bold;
+}
+
+.article-list a {
+    color: #003c74;
+    text-decoration: none;
+    font-family: Tahoma, Arial, sans-serif;
+    font-size: 11px;
+}
+
+.article-list a:hover {
+    text-decoration: underline;
+    color: #0054e3;
+}
+
+.article-list a:visited {
+    color: #5a309b;
+}
+
+/* Sidebar categories container */
+.sidebar-categories {
+    margin-top: 20px;
+}
+
+/* Root level articles (uncategorized) */
+.article-list-root {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #b5c4e7;
+}
