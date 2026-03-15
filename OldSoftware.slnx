@@ -1,4 +1,0 @@
-<Solution>
-  <Project Path="OldSoftware.Presentation/OldSoftware.Presentation.csproj" />
-  <Project Path="src/OldSoftware.Application/OldSoftware.Application.csproj" />
-</Solution>

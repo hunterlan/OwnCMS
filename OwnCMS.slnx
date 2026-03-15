@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="src\OwnCMS.Entities\OwnCMS.Entities.csproj" />
+  <Project Path="src\OwnCMS.Presentation\OwnCMS.Presentation.csproj" />
+  <Project Path="src\OwnCMS.Application\OwnCMS.Application.csproj" />
+</Solution>
