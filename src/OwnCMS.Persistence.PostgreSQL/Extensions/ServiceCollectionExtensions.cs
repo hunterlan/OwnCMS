@@ -18,11 +18,23 @@ public static class ServiceCollectionExtensions
     /// <param name="services">The service collection.</param>
     /// <param name="connectionString">The PostgreSQL connection string.</param>
     /// <returns>The service collection.</returns>
-    public static IServiceCollection AddPostgreSqlPersistence(this IServiceCollection services, string connectionString)
+    public static IServiceCollection AddPostgreSqlPersistence(
+        this IServiceCollection services,
+        string connectionString,
+        string? migrationsAssembly = null)
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(connectionString, nameof(connectionString));
 
-        services.AddDbContext<OwnCmsDbContext>(options => options.UseNpgsql(connectionString));
+        services.AddDbContext<OwnCmsDbContext>(options =>
+            options.UseNpgsql(
+                connectionString,
+                npgsqlOptions =>
+                {
+                    if (!string.IsNullOrWhiteSpace(migrationsAssembly))
+                    {
+                        npgsqlOptions.MigrationsAssembly(migrationsAssembly);
+                    }
+                }));
         services.AddScoped<IArticleDataAccess, PostgreSqlArticleDataAccess>();
         services.AddScoped<ICategoryDataAccess, PostgreSqlCategoryDataAccess>();
 

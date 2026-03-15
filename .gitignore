@@ -484,5 +484,10 @@ $RECYCLE.BIN/
 *.swp
 
 # Specific appsettings.json envs
-
 appsettings.*.json
+
+# Local migrations config override
+src/OwnCMS.Migrations.PostgreSQL/migrations.settings.local.json
+
+# AI docs
+docs/AI

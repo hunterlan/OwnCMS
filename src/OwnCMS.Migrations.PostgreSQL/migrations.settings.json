@@ -1,0 +1,5 @@
+{
+  "ConnectionStrings": {
+    "OwnCMS": "Host=localhost;Database=owncms;Username=postgres;Password=change-me"
+  }
+}
