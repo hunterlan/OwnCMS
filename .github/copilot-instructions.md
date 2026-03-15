@@ -17,6 +17,7 @@ This is a CMS that still supports Internet Explorer 8 browsers, for people, who 
 - `src/OwnCMS.Presentation` - related ASP.NET Core
 - `src/OwnCMS.Application` - business logic
 - `src/OwnCMS.Entities` - Entities, value objects, enums, domain events
+- `src/OwnCMS.Persistence` - Context class, entity configurations
 
 ## Commands
 
