@@ -14,11 +14,17 @@
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.1" />
         <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.0" />
     </ItemGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\OwnCMS.Application\OwnCMS.Application.csproj" />
         <ProjectReference Include="..\OwnCMS.Entities\OwnCMS.Entities.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="PersistenceReference.cs" />
     </ItemGroup>
 
 </Project>
