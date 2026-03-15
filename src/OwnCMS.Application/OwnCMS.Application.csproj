@@ -5,6 +5,8 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <RootNamespace>OwnCMS.Application</RootNamespace>
+        <PackageId>OwnCMS.Application</PackageId>
+        <Description>Reusable application services and use cases for the OwnCMS platform.</Description>
     </PropertyGroup>
 
     <ItemGroup>

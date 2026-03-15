@@ -5,6 +5,8 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <RootNamespace>OwnCMS.Persistence.PostgreSQL</RootNamespace>
+        <PackageId>OwnCMS.Persistence.PostgreSQL</PackageId>
+        <Description>PostgreSQL persistence implementation for OwnCMS based on Entity Framework Core.</Description>
     </PropertyGroup>
 
     <ItemGroup>
