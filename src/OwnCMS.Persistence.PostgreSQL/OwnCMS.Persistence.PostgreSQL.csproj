@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <RootNamespace>OwnCMS.Persistence.PostgreSQL</RootNamespace>
+        <PackageId>OwnCMS.Persistence.PostgreSQL</PackageId>
+        <Description>PostgreSQL persistence implementation for OwnCMS based on Entity Framework Core.</Description>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.1" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Relational" Version="10.0.1" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="10.0.1">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="10.0.1" />
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="10.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\OwnCMS.Application\OwnCMS.Application.csproj" />
+        <ProjectReference Include="..\OwnCMS.Entities\OwnCMS.Entities.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Remove="PersistenceReference.cs" />
+    </ItemGroup>
+
+</Project>

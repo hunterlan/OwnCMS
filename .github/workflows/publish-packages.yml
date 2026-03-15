@@ -1,0 +1,48 @@
+name: Publish packages
+
+on:
+  push:
+    branches:
+      - master
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: "10.0.x"
+
+      - name: Resolve package version
+        id: version
+        shell: bash
+        run: |
+          base_version=$(grep -oPm1 '(?<=<VersionPrefix>)[^<]+' Directory.Build.props)
+          version="${base_version}-master.${GITHUB_RUN_NUMBER}"
+
+          echo "value=$version" >> "$GITHUB_OUTPUT"
+
+      - name: Restore
+        run: dotnet restore OwnCMS.slnx
+
+      - name: Build
+        run: dotnet build OwnCMS.slnx --configuration Release --no-restore
+
+      - name: Pack
+        run: |
+          dotnet pack src/OwnCMS.Entities/OwnCMS.Entities.csproj --configuration Release --no-build -p:Version=${{ steps.version.outputs.value }} --output ./artifacts/packages
+          dotnet pack src/OwnCMS.Application/OwnCMS.Application.csproj --configuration Release --no-build -p:Version=${{ steps.version.outputs.value }} --output ./artifacts/packages
+          dotnet pack src/OwnCMS.Persistence.PostgreSQL/OwnCMS.Persistence.PostgreSQL.csproj --configuration Release --no-build -p:Version=${{ steps.version.outputs.value }} --output ./artifacts/packages
+          dotnet pack src/OwnCMS.Migrations.PostgreSQL/OwnCMS.Migrations.PostgreSQL.csproj --configuration Release --no-build -p:Version=${{ steps.version.outputs.value }} --output ./artifacts/packages
+
+      - name: Publish to GitHub Packages
+        run: dotnet nuget push "./artifacts/packages/*.nupkg" --source "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json" --api-key "${{ secrets.GITHUB_TOKEN }}" --skip-duplicate

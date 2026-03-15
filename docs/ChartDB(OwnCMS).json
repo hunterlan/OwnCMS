@@ -1,0 +1,327 @@
+{
+  "id": "0",
+  "name": "OwnCMS",
+  "createdAt": "2026-03-15T09:49:14.624Z",
+  "updatedAt": "2026-03-15T11:13:51.187Z",
+  "databaseType": "postgresql",
+  "tables": [
+    {
+      "id": "1",
+      "name": "article",
+      "x": -550.0203679490255,
+      "y": -231.0582045199509,
+      "fields": [
+        {
+          "id": "2",
+          "name": "id",
+          "type": {
+            "id": "uuid",
+            "name": "uuid"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1773568200576
+        },
+        {
+          "id": "3",
+          "name": "name",
+          "type": {
+            "id": "varchar",
+            "name": "varchar"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1773568220973,
+          "characterMaximumLength": "200"
+        },
+        {
+          "id": "4",
+          "name": "slug",
+          "type": {
+            "id": "varchar",
+            "name": "varchar"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1773568231956,
+          "characterMaximumLength": "250"
+        },
+        {
+          "id": "5",
+          "name": "created_at",
+          "type": {
+            "id": "timestamptz",
+            "name": "timestamptz"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1773568245188
+        },
+        {
+          "id": "6",
+          "name": "updated_at",
+          "type": {
+            "id": "timestamptz",
+            "name": "timestamptz"
+          },
+          "unique": false,
+          "nullable": true,
+          "primaryKey": false,
+          "createdAt": 1773568261405
+        }
+      ],
+      "indexes": [
+        {
+          "id": "7",
+          "name": "pk_table_1_id",
+          "fieldIds": [
+            "2"
+          ],
+          "unique": true,
+          "isPrimaryKey": true,
+          "createdAt": 1773568200577
+        }
+      ],
+      "color": "#8eb7ff",
+      "createdAt": 1773568200576,
+      "isView": false,
+      "order": 0,
+      "schema": "public"
+    },
+    {
+      "id": "8",
+      "name": "article_content",
+      "x": -235.05161794902563,
+      "y": -225.4332045199508,
+      "fields": [
+        {
+          "id": "9",
+          "name": "id",
+          "type": {
+            "id": "uuid",
+            "name": "uuid"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1773568296155
+        },
+        {
+          "id": "10",
+          "name": "html",
+          "type": {
+            "id": "text",
+            "name": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1773568321203
+        },
+        {
+          "id": "11",
+          "name": "css",
+          "type": {
+            "id": "text",
+            "name": "text"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1773568347286
+        },
+        {
+          "id": "12",
+          "name": "article_id",
+          "type": {
+            "id": "uuid",
+            "name": "uuid"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1773568362438
+        }
+      ],
+      "indexes": [
+        {
+          "id": "13",
+          "name": "pk_table_2_id",
+          "fieldIds": [
+            "9"
+          ],
+          "unique": true,
+          "isPrimaryKey": true,
+          "createdAt": 1773568296155
+        }
+      ],
+      "color": "#c05dcf",
+      "createdAt": 1773568296155,
+      "isView": false,
+      "order": 1,
+      "schema": "public"
+    },
+    {
+      "id": "14",
+      "name": "category",
+      "x": -1097.5516179490255,
+      "y": -239.8082045199508,
+      "fields": [
+        {
+          "id": "15",
+          "name": "id",
+          "type": {
+            "id": "uuid",
+            "name": "uuid"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1773568481502
+        },
+        {
+          "id": "16",
+          "name": "name",
+          "type": {
+            "id": "varchar",
+            "name": "varchar"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1773568503568,
+          "characterMaximumLength": "100"
+        },
+        {
+          "id": "17",
+          "name": "slug",
+          "type": {
+            "id": "varchar",
+            "name": "varchar"
+          },
+          "unique": true,
+          "nullable": false,
+          "primaryKey": false,
+          "createdAt": 1773573217693,
+          "characterMaximumLength": "150"
+        }
+      ],
+      "indexes": [
+        {
+          "id": "18",
+          "name": "pk_table_3_id",
+          "fieldIds": [
+            "15"
+          ],
+          "unique": true,
+          "isPrimaryKey": true,
+          "createdAt": 1773568481502
+        }
+      ],
+      "color": "#42e0c0",
+      "createdAt": 1773568481502,
+      "isView": false,
+      "order": 2,
+      "schema": "public"
+    },
+    {
+      "id": "19",
+      "name": "article_category",
+      "x": -856.3016179490255,
+      "y": -450.9605482699508,
+      "fields": [
+        {
+          "id": "20",
+          "name": "article_id",
+          "type": {
+            "id": "uuid",
+            "name": "uuid"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1773568531352
+        },
+        {
+          "id": "21",
+          "name": "category_id",
+          "type": {
+            "id": "uuid",
+            "name": "uuid"
+          },
+          "unique": false,
+          "nullable": false,
+          "primaryKey": true,
+          "createdAt": 1773568552752
+        }
+      ],
+      "indexes": [
+        {
+          "id": "22",
+          "name": "pk_table_4_id",
+          "fieldIds": [
+            "20",
+            "21"
+          ],
+          "unique": true,
+          "isPrimaryKey": true,
+          "createdAt": 1773568531352
+        }
+      ],
+      "color": "#9ef07a",
+      "createdAt": 1773568531352,
+      "isView": false,
+      "order": 3,
+      "schema": "public"
+    }
+  ],
+  "relationships": [
+    {
+      "id": "23",
+      "name": "article_content_article_id_fk",
+      "sourceSchema": "public",
+      "sourceTableId": "8",
+      "targetSchema": "public",
+      "targetTableId": "1",
+      "sourceFieldId": "12",
+      "targetFieldId": "2",
+      "sourceCardinality": "one",
+      "targetCardinality": "one",
+      "createdAt": 1773568433689
+    },
+    {
+      "id": "24",
+      "name": "article_id_fk",
+      "sourceSchema": "public",
+      "sourceTableId": "1",
+      "targetSchema": "public",
+      "targetTableId": "19",
+      "sourceFieldId": "2",
+      "targetFieldId": "20",
+      "sourceCardinality": "one",
+      "targetCardinality": "many",
+      "createdAt": 1773568586819
+    },
+    {
+      "id": "25",
+      "name": "category_id_fk",
+      "sourceSchema": "public",
+      "sourceTableId": "14",
+      "targetSchema": "public",
+      "targetTableId": "19",
+      "sourceFieldId": "15",
+      "targetFieldId": "21",
+      "sourceCardinality": "one",
+      "targetCardinality": "many",
+      "createdAt": 1773568604267
+    }
+  ],
+  "dependencies": [],
+  "areas": [],
+  "customTypes": [],
+  "notes": []
+}

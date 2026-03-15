@@ -1,5 +1,10 @@
 <Solution>
   <Project Path="src\OwnCMS.Entities\OwnCMS.Entities.csproj" />
   <Project Path="src\OwnCMS.Presentation\OwnCMS.Presentation.csproj" />
+  <Folder Name="/tests/">
+    <Project Path="tests/OwnCMS.Application.UnitTests/OwnCMS.Application.UnitTests.csproj" />
+  </Folder>
   <Project Path="src\OwnCMS.Application\OwnCMS.Application.csproj" />
+  <Project Path="src\OwnCMS.Persistence.PostgreSQL\OwnCMS.Persistence.PostgreSQL.csproj" />
+  <Project Path="src\OwnCMS.Migrations.PostgreSQL\OwnCMS.Migrations.PostgreSQL.csproj" />
 </Solution>
