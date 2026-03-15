@@ -9,6 +9,7 @@
 
     <ItemGroup>
       <ProjectReference Include="..\OwnCMS.Application\OwnCMS.Application.csproj" />
+      <ProjectReference Include="..\OwnCMS.Persistence.PostgreSQL\OwnCMS.Persistence.PostgreSQL.csproj" />
     </ItemGroup>
 
 </Project>
