@@ -5,6 +5,8 @@
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <RootNamespace>OwnCMS.Migrations.PostgreSQL</RootNamespace>
+        <PackageId>OwnCMS.Migrations.PostgreSQL</PackageId>
+        <Description>Entity Framework Core migrations assembly for OwnCMS PostgreSQL schema evolution.</Description>
     </PropertyGroup>
 
     <ItemGroup>

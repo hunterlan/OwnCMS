@@ -1,0 +1,15 @@
+<Project>
+
+    <PropertyGroup Condition="'$(MSBuildProjectName)' == 'OwnCMS.Entities' Or '$(MSBuildProjectName)' == 'OwnCMS.Application' Or '$(MSBuildProjectName)' == 'OwnCMS.Persistence.PostgreSQL' Or '$(MSBuildProjectName)' == 'OwnCMS.Migrations.PostgreSQL'">
+        <Authors>OwnCMS</Authors>
+        <Company>OwnCMS</Company>
+        <RepositoryUrl>https://github.com/hunterlan/OldSoftwareBlog</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <PackageProjectUrl>https://github.com/hunterlan/OldSoftwareBlog</PackageProjectUrl>
+        <PackageTags>cms;owncms;aspnetcore;postgresql</PackageTags>
+        <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+        <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+        <VersionPrefix Condition="'$(VersionPrefix)' == ''">0.1.0</VersionPrefix>
+    </PropertyGroup>
+
+</Project>
